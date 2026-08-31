@@ -22,7 +22,8 @@ npm install
 npm run dev
 ```
 
-Open the printed local URL in your browser.
+You can also clone the project and double-click `START_STREAMLIT_WINDOWS.cmd`
+to have the application open in your browser.
 
 ## Forecast approaches
 
