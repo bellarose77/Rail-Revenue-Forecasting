@@ -1,6 +1,6 @@
-# ExPretio rail bookings and revenue forecast lab
+# Rail bookings and revenue forecast lab
 
-A compact candidate skill demonstration prepared for ExPretio Technologies.
+A compact candidate skill demonstration.
 The project generates realistic synthetic rail data, runs forecasting methods
 live, and validates bookings and revenue forecasts at daily, weekly, and
 monthly levels.
@@ -95,4 +95,4 @@ tests/                           Leakage, aggregation, model, render, and archiv
 
 All routes, dates, events, prices, bookings, revenue, and outcomes are
 synthetic. Results demonstrate the workflow and the candidate's reasoning;
-they are not claims about expected performance on ExPretio or operator data.
+they are not claims about expected performance on real operator data.

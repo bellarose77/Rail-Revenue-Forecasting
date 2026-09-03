@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This version is a candidate skill demonstration for ExPretio Technologies. It
+This version is a candidate skill demonstration. It
 shows how the candidate structures and validates a practical rail bookings and
 revenue forecast without turning the exercise into a production platform.
 

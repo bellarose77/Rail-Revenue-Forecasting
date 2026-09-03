@@ -19,5 +19,5 @@ if not exist node_modules (
   )
 )
 
-echo Starting the ExPretio Rail Forecast Lab...
+echo Starting the Rail Forecast Lab...
 call npm run dev

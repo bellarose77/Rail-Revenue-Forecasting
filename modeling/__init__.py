@@ -1,1 +1,1 @@
-"""Reusable modeling package for the ExPretio rail forecasting demonstration."""
+"""Reusable modeling package for the rail forecasting demonstration."""

@@ -1,4 +1,4 @@
-"""Streamlit interface for the focused ExPretio rail forecasting studio."""
+"""Streamlit interface for the focused rail forecasting studio."""
 
 from __future__ import annotations
 
@@ -49,7 +49,7 @@ CLASS_COLORS = {
 }
 
 st.set_page_config(
-    page_title="ExPretio Rail Forecast Lab",
+    page_title="Rail Forecast Lab",
     page_icon="🚄",
     layout="wide",
 )
@@ -204,7 +204,7 @@ if "compare_result" not in st.session_state:
     st.session_state.compare_result = None
 
 
-st.caption("EXPRETIO CANDIDATE SKILL DEMONSTRATION · LIVE PYTHON MODELS")
+st.caption("CANDIDATE SKILL DEMONSTRATION · LIVE PYTHON MODELS")
 st.title("Rail bookings & revenue forecast lab")
 st.write(
     "Generate a realistic two-route dataset, run seven forecasting approaches "

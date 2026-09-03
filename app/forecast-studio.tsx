@@ -1508,7 +1508,7 @@ export default function ForecastStudio() {
     <main className="forecast-studio">
       <header className="studio-hero">
         <div className="hero-topline">
-          <span>ExPretio candidate skill demonstration</span>
+          <span>Candidate skill demonstration</span>
           <span className="live-status"><i /> Live in-browser modeling</span>
         </div>
         <div className="hero-content">
@@ -1572,11 +1572,11 @@ export default function ForecastStudio() {
           <p>
             This is a compact portfolio demonstration using deterministic
             synthetic data. It forecasts booking and revenue quantities; it
-            does not estimate buy-up or sell-out probabilities and is not an
-            ExPretio production system.
+            does not estimate buy-up or sell-out probabilities and is not a
+            production system.
           </p>
         </div>
-        <span>Prepared for ExPretio Technologies · Montréal</span>
+        <span>Portfolio demonstration · Montréal</span>
       </footer>
     </main>
   );

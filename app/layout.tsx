@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rail Demand Forecasting Lab | ExPretio Portfolio Demo",
+  title: "Rail Demand Forecasting Lab | Portfolio Demo",
   description:
     "A focused candidate demonstration of realistic synthetic rail-demand forecasting, validation, unconstraining, and data-quality analysis.",
   other: {
