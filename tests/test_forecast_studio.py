@@ -9,9 +9,9 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "modeling"))
+sys.path.insert(0, str(ROOT))
 
-from forecast_studio import (  # noqa: E402
+from src.forecast_studio import (  # noqa: E402
     FARE_CLASSES,
     HORIZONS,
     MODELS,

@@ -8,7 +8,7 @@ import {
   MODEL_KEYS,
   ROUTE_SPECS,
   runForecastStudio,
-} from "../app/forecast-studio-engine.ts";
+} from "../src/forecast-studio-engine.ts";
 
 test("synthetic generator is reproducible and respects the focused scope", () => {
   const first = generateSyntheticDataset(20260728);

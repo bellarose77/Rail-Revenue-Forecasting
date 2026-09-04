@@ -2,7 +2,11 @@
 
 Executable developer/data/pipeline scripts, run from the repo root.
 
-Empty for now. `modeling/generate_forecast_studio.py` is the eventual
-`scripts/generate_dataset.py` but has not been moved in this pass, so the
-current `py modeling\generate_forecast_studio.py` workflow keeps working
-unchanged.
+- `generate_dataset.py` — regenerates the default synthetic dataset from
+  `src/forecast_studio.py` and writes it to
+  `data/processed/rail_forecast_studio.csv.gz`. Run with
+  `py scripts\generate_dataset.py`.
+- `sites-env.sh`, `install-ci.sh`, `build-verified.sh`, `validate-artifact.sh`
+  — platform CI plumbing for the hosted "Sites" build/deploy pipeline
+  (invoked by the `npm run build` / `install:ci` / `validate:artifact`
+  package.json scripts). Not specific to the forecasting project itself.

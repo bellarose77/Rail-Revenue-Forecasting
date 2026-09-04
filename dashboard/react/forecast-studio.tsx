@@ -24,7 +24,7 @@ import {
   type SyntheticDataset,
   type TargetMetric,
   type Aggregation,
-} from "./forecast-studio-engine";
+} from "@/src/forecast-studio-engine";
 
 type TabKey = "data" | "live" | "compare";
 type StepState = "waiting" | "running" | "complete";

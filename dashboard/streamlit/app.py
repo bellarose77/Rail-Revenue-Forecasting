@@ -10,10 +10,10 @@ import plotly.graph_objects as go
 import streamlit as st
 
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "modeling"))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
 
-from forecast_studio import (  # noqa: E402
+from src.forecast_studio import (  # noqa: E402
     BASE_MODELS,
     DEFAULT_SEED,
     FARE_CLASSES,

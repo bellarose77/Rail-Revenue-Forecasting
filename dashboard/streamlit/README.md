@@ -5,8 +5,8 @@ From the project root on Windows PowerShell:
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
-py -m pip install -r streamlit_app\requirements.txt
-py -m streamlit run streamlit_app\app.py
+py -m pip install -r dashboard\streamlit\requirements.txt
+py -m streamlit run dashboard\streamlit\app.py
 ```
 
 From macOS or Linux:
@@ -14,8 +14,8 @@ From macOS or Linux:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r streamlit_app/requirements.txt
-python -m streamlit run streamlit_app/app.py
+python -m pip install -r dashboard/streamlit/requirements.txt
+python -m streamlit run dashboard/streamlit/app.py
 ```
 
 The Streamlit and React versions cover the same focused exercise:

@@ -12,6 +12,16 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // ESLint's flat config does not read .gitignore automatically, so
+    // non-project directories must be excluded explicitly. Without this,
+    // eslint also tries to parse vendored/minified JS bundled inside the
+    // Python virtual environment (e.g. Streamlit's static assets), which
+    // can exhaust the Node heap.
+    ".venv/**",
+    ".sites-runtime/**",
+    ".vinext/**",
+    ".wrangler/**",
+    "dist/**",
   ]),
 ]);
 
