@@ -1,84 +1,20 @@
 @echo off
-setlocal enabledelayedexpansion
+rem One-click launcher for the Rail Revenue Forecasting Dashboard (Streamlit).
+rem No menu, no typing required: double-click this file and the dashboard
+rem starts and opens in your default browser. The console window that
+rem briefly appears here closes on its own once the dashboard is open;
+rem the dashboard itself keeps running in the background.
+rem
+rem This calls scripts\windows\launch-dashboard.ps1, which does the actual
+rem work (Python venv, dependency install, port/duplicate checks, waiting
+rem for readiness, opening the browser) and reports any failure in a
+rem Windows message box instead of a console window that can vanish
+rem before you can read it.
+rem
+rem If you specifically want to choose React vs. Streamlit vs. both, use
+rem start-menu.bat instead -- it has the old interactive menu.
+
+setlocal
 cd /d "%~dp0"
-
-if /I "%~1"=="react" goto :react
-if /I "%~1"=="streamlit" goto :streamlit
-
-echo ============================================
-echo  Rail Revenue Forecasting Lab - Start
-echo ============================================
-echo.
-echo   1. React / Next.js app only
-echo   2. Streamlit dashboard only
-echo   3. Both (Streamlit here, React in a new window)
-echo.
-set /p CHOICE="Select an option [1-3, default 1]: "
-if "%CHOICE%"=="" set CHOICE=1
-
-if "%CHOICE%"=="1" goto :react
-if "%CHOICE%"=="2" goto :streamlit
-if "%CHOICE%"=="3" goto :both
-
-echo Invalid selection.
-exit /b 1
-
-:both
-start "Rail Forecast - React" cmd /k "%~f0" react
-goto :streamlit
-
-:react
-where node >nul 2>nul
-if errorlevel 1 (
-  echo Node.js 22.13 or newer is required.
-  pause
-  exit /b 1
-)
-
-if not exist node_modules (
-  echo Installing Node dependencies...
-  call npm install
-  if errorlevel 1 (
-    echo Installation failed.
-    pause
-    exit /b 1
-  )
-)
-
-echo Starting the React/Next.js dev server...
-call :open_when_ready http://127.0.0.1:5173/
-call npm run dev
-goto :eof
-
-:streamlit
-where py >nul 2>nul
-if errorlevel 1 (
-  echo Python 3.11 or newer is required.
-  pause
-  exit /b 1
-)
-
-if not exist .venv\Scripts\python.exe (
-  echo Creating Python environment...
-  py -m venv .venv
-)
-
-echo Installing Streamlit dependencies...
-call .venv\Scripts\python.exe -m pip install -r dashboard\streamlit\requirements.txt
-if errorlevel 1 (
-  echo Installation failed.
-  pause
-  exit /b 1
-)
-
-echo Starting the Streamlit dashboard...
-call :open_when_ready http://127.0.0.1:8501/
-call .venv\Scripts\python.exe -m streamlit run dashboard\streamlit\app.py --server.headless true
-goto :eof
-
-:open_when_ready
-rem Polls the given URL in the background (hidden window) and opens it in
-rem the default browser as soon as the dev server responds, so double-
-rem clicking start.bat lands you straight on the dashboard.
-start "" powershell -NoProfile -WindowStyle Hidden -Command "$u='%~1'; for ($i=0; $i -lt 60; $i++) { try { Invoke-WebRequest -Uri $u -UseBasicParsing -TimeoutSec 1 | Out-Null; Start-Process $u; break } catch { Start-Sleep -Seconds 1 } }"
-goto :eof
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\windows\launch-dashboard.ps1"
+exit /b %ERRORLEVEL%
