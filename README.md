@@ -180,6 +180,9 @@ Double-click `start.bat`, or run it from a terminal, and choose:
 2. the Streamlit dashboard, or
 3. both (Streamlit in the current window, React in a new one).
 
+Once the server responds, `start.bat` opens your default browser to the
+dashboard automatically — you don't need to navigate there yourself.
+
 ## How to start the Streamlit dashboard
 
 ```powershell
@@ -236,7 +239,11 @@ Streamlit dashboard.
 
 Presents a menu to start the React/Next.js dev server, the Streamlit
 dashboard, or both. Installs `node_modules` and/or creates `.venv` and
-installs Streamlit's dependencies on first run if they're missing.
+installs Streamlit's dependencies on first run if they're missing. Polls
+the server in the background and opens it in your default browser
+(`http://127.0.0.1:5173/` for React, `http://127.0.0.1:8501/` for
+Streamlit) as soon as it responds, so you land on the dashboard without
+typing a URL.
 
 ## What `build.bat` does
 

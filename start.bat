@@ -46,6 +46,7 @@ if not exist node_modules (
 )
 
 echo Starting the React/Next.js dev server...
+call :open_when_ready http://127.0.0.1:5173/
 call npm run dev
 goto :eof
 
@@ -71,5 +72,13 @@ if errorlevel 1 (
 )
 
 echo Starting the Streamlit dashboard...
-call .venv\Scripts\python.exe -m streamlit run dashboard\streamlit\app.py
+call :open_when_ready http://127.0.0.1:8501/
+call .venv\Scripts\python.exe -m streamlit run dashboard\streamlit\app.py --server.headless true
+goto :eof
+
+:open_when_ready
+rem Polls the given URL in the background (hidden window) and opens it in
+rem the default browser as soon as the dev server responds, so double-
+rem clicking start.bat lands you straight on the dashboard.
+start "" powershell -NoProfile -WindowStyle Hidden -Command "$u='%~1'; for ($i=0; $i -lt 60; $i++) { try { Invoke-WebRequest -Uri $u -UseBasicParsing -TimeoutSec 1 | Out-Null; Start-Process $u; break } catch { Start-Sleep -Seconds 1 } }"
 goto :eof
